@@ -1,0 +1,7 @@
+com\accolite\model\Log.class
+com\accolite\model\ItemType.class
+com\accolite\dao\ItemDAO.class
+com\accolite\model\ItemCollection.class
+com\accolite\model\Item.class
+com\accolite\controller\ItemController.class
+com\accolite\dao\ItemDAO$1.class

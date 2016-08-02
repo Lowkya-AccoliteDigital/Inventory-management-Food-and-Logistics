@@ -2,6 +2,7 @@ package com.accolite.controller;
 
 
 import java.sql.Date;
+import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +27,17 @@ public class ItemController {
 	private ItemDAO jdbc;
 	
 	//To display all items 
-	@RequestMapping(value="/items/{visibility}",method=RequestMethod.GET,produces = "text/html")
+	@RequestMapping(value="/items/{visibility}",method=RequestMethod.GET)
 	@ResponseBody
 	public List<Item> getItems(@PathVariable("visibility")Integer visibility ){
 	    return jdbc.getItems(visibility);
 	}
+	
+	@RequestMapping(value="/items",method=RequestMethod.GET,produces = "text/html")
+	@ResponseBody
+	public String getItems(){
+	    return "Welcome";
+	}	
 	
 	//To add a new item
 	@RequestMapping(value = "/addItem/{itemName}/{typeId}",method=RequestMethod.GET,produces="application/json")
@@ -47,7 +54,7 @@ public class ItemController {
 	}
 	
 	//To add new item type
-	@RequestMapping(value = "/addItem/{typeName}/{subtypeName}",method=RequestMethod.GET,produces="application/json")
+	@RequestMapping(value = "/addItemType/{typeName}/{subtypeName}",method=RequestMethod.GET,produces="application/json")
 	@ResponseBody
 	public void addItemType(@PathVariable("typeName")String type,@PathVariable("subtypeName")String subtype){
 		jdbc.addItemType(type, subtype);
@@ -55,7 +62,7 @@ public class ItemController {
 	
 	@RequestMapping(value = "/summary/{fromDate}/{toDate}",method=RequestMethod.GET,produces="application/json")
 	@ResponseBody
-	public void viewSummary(@PathVariable("fromDate")Date startdate,@PathVariable("toDate")Date enddate){
+	public void viewSummary(@PathVariable("fromDate")String startdate,@PathVariable("toDate")String enddate) throws ParseException{
 		jdbc.viewSummary(startdate, enddate);
 	}
 

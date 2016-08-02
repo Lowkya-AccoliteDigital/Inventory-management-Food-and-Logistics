@@ -5,10 +5,10 @@ import java.sql.Date;
 public class Log {
 	Integer id;
 	Integer itemID;
-	Date dateOfPurchase;
+	String dateOfPurchase;
 	Integer quantity;
 	String unit;
-	Date dateOfExpiry;
+	String dateOfExpiry;
 	Integer expiryFlag;
 	
 	public Integer getId() {
@@ -23,10 +23,10 @@ public class Log {
 	public void setItemID(Integer itemID) {
 		this.itemID = itemID;
 	}
-	public Date getDateOfPurchase() {
+	public String getDateOfPurchase() {
 		return dateOfPurchase;
 	}
-	public void setDateOfPurchase(Date dateOfPurchase) {
+	public void setDateOfPurchase(String dateOfPurchase) {
 		this.dateOfPurchase = dateOfPurchase;
 	}
 	public Integer getQuantity() {
@@ -41,10 +41,10 @@ public class Log {
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-	public Date getDateOfExpiry() {
+	public String getDateOfExpiry() {
 		return dateOfExpiry;
 	}
-	public void setDateOfExpiry(Date dateOfExpiry) {
+	public void setDateOfExpiry(String dateOfExpiry) {
 		this.dateOfExpiry = dateOfExpiry;
 	}
 	public Integer getExpiryFlag() {
