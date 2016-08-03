@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.accolite.dao.ItemDAO;
 import com.accolite.model.Item;
 
+@Service
 public class ItemService {
 
 	@Autowired
