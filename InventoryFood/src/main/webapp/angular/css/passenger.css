@@ -1,0 +1,180 @@
+
+.update {
+    min-width:14%;background-color:#AE2EC5;margin-left:-4px;color:white;
+}
+.save {
+    min-width:14%;background-color:#AE2EC5;margin-left:-4px;color:white;margin-right: 10px;
+}
+.imgBorder {
+    margin-top:5px;margin-left: -12px;
+}
+
+.imgDefault {
+    height:119px;width:131px;background-image: url('images/default.jpg');
+}
+.imgupload {
+    margin-left:16px;margin-top:5px;width:67%;
+}
+
+.gender {
+    height:24px;border-color:grey;padding:0;padding-top:1px;margin-top:-5px;
+}
+.country {
+    height:24px;border-color:grey;padding:0;padding-top:1px;margin-top:-5px;
+}
+
+.passportbt {
+    line-height: 1;min-width:14%;background-color:#AE2EC5;color:white;
+}
+.addbt {
+    line-height: 1;background-color:#AE2EC5;color:white;;margin-left:-3px;
+}
+.pvHeading {
+    margin-left: -13px;
+    padding-right: 0;
+}
+.margin-right-3 {
+    margin-right:-3%;
+}
+.textboxDate {
+    height:24px;border-color:grey;margin-top:-5px;
+}
+.dlExpiry {
+    height:24px;border-color:grey;margin-top:-5px;padding-left:3%;
+}
+.idlExpiry {
+    margin-top:-10px;margin-right:-2%;
+}
+.marginCol {
+    padding:0;margin-top:4px;
+}
+.padding-right-10 {
+    padding-right: 10 !important;
+}
+.checkPanel {
+    margin-top:6px;background-color:#deabe7;margin-left:3%;width:93.9%;padding-top:5px;
+}
+.passengerBox {
+    border:1px solid grey;margin-top:-10px;;margin-right:0px!important;margin-left:0px!important;
+
+}
+
+.address {
+    margin-bottom:8px;margin-top:12px;
+}
+
+.mtop4 {
+    margin-top:4px;
+}
+.mtop5 {
+    margin-top:5px;
+}
+
+.mtop3 {
+     margin-top:3px;
+}
+
+.mtop10 {
+    margin-top:10px;
+}
+.commonHeader {
+    margin-right: 0px;
+    border: 1px solid grey;
+    margin-bottom: 14px;
+    margin-left: 0px;
+    height: 51px;
+    background-color: #AE2EC5;    
+    padding-left: 10px;
+    padding-top: 7px;margin-top:-16px;
+}
+
+.passengerPanel {
+    background-color:#deabe7;height:20px;
+}
+
+.textBox{
+    height:24px;border-color:grey;margin-top:-5px;
+}
+.font {
+    font-size: 13px;
+    font-weight: 500;
+    color:#848484;
+}
+
+.title_font {
+    
+    font-size: 14px;
+    font-weight: 500;
+    color:#000000;
+
+}
+
+.width_att {
+    //width: 115%;
+    padding:0!important;
+    padding-left:4px!important;
+}
+
+.paddingleft {
+    padding-left: 0!important;
+}
+
+.passport {
+    background-color: #AE2EC5;
+    margin-top: 5px;
+    height: 26px;
+    line-height: 2;
+    color: white;
+    margin-left: 13px;
+}
+.visa {
+    margin-right: 0px!important;
+    border: 1px solid #AE2EC5;
+    min-width: 14.4%;
+    height: 19px;
+    position: absolute;
+    z-index: 1;
+    padding-left: 1.5px;
+    margin-top: 27.2%;
+    background-color: white;
+    margin-left: 4%!important;
+}
+
+.passportDetail {
+    border:1px solid grey;width:94%;margin-left:29px;margin-top:0.5%;padding:0.4%;padding-top:1%; -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px#888;
+    box-shadow: 0 0 5px #888;
+}
+
+.c_address {
+    border-right: 1px solid gray;border-left: 1px solid gray;margin-left:1.4%;width:32%
+}
+.h_address {
+    border-right: 1px solid gray;
+}
+.b_address  {
+    border-right: 1px solid gray;width:32%;
+}
+
+.b1 {
+    line-height: 1;min-width:14%;background-color:#AE2EC5;color:white;
+}
+.rightborder {
+    border-right: 1px solid black;
+}
+.btn-group-wrap {
+    text-align: center;
+}
+.btn-group-wrap1 {
+    text-align: right;
+}
+.form-group {
+     margin-bottom: 0px!important; 
+}
+
+div.btn-group {
+    margin: 0 auto; 
+    text-align: center;
+    width: inherit;
+    display: inline-block;
+}
