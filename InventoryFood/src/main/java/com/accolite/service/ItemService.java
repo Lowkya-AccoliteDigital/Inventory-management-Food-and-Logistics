@@ -4,9 +4,11 @@ import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.accolite.dao.ItemDAO;
 import com.accolite.model.Item;
+import com.accolite.model.Summary;
 
 @Service
 public class ItemService {
@@ -30,12 +32,8 @@ public class ItemService {
 		itemDao.addItemType(type, subtype);
 	}
 
-	public void viewSummary(String startdate, String enddate) {
-		try {
-			itemDao.viewSummary(startdate, enddate);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+	public List<Summary> viewSummary(String startdate, String enddate) throws ParseException {
+		return itemDao.viewSummary(startdate, enddate);
 	}
 
 }
