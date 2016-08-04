@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import com.accolite.model.Item;
 import com.accolite.model.Log;
+import com.accolite.model.Summary;
 import com.accolite.resources.Constants;
 
 @Repository
@@ -77,17 +78,23 @@ public class ItemDAO {
 	}
 
 	// QUERY TO DISPLAY SUMMARY
-	public List<Log> viewSummary(String from, String to) throws ParseException {
+	public List<Summary> viewSummary(String from, String to) throws ParseException {
 
-		return jdbcTemplate.query(Constants.VIEW_SUMMARY, new ResultSetExtractor<List<Log>>() {
+		String query=";with log11 as( select log1.itemID itemID,item.itemName,sum(log1.Quantity) total from dbo.log log1 join item on log1.itemID=item.itemID   where log1.io='i' and log1.dateofpurchase between"
+				+from+" and "+to+" group  by log1.itemID,item.itemName),logFinal as(select item.itemID,item.itemName from item),log12 as( select log2.itemID,item.itemName,sum(Quantity) used from dbo.log log2 join item on item.itemID=log2.itemID where log2.io='o' and log2.dateofpurchase between"
+				+from+" and "+to+" group by log2.itemID,item.itemName) select log11.itemID,log11.itemName,total,IsNull(used,0) as used, IsNull(total-used,0) as remaining  from log11 left outer join log12 on log11.itemID=log12.itemID;";
 
-			public List<Log> extractData(ResultSet rs) throws SQLException, DataAccessException {
-				List<Log> list = new ArrayList<Log>();
+		return jdbcTemplate.query(query, new ResultSetExtractor<List<Summary>>() {
+			public List<Summary> extractData(ResultSet rs) throws SQLException, DataAccessException {
+				List<Summary> list = new ArrayList<Summary>();
 				while (rs.next()) {
-					Log log = new Log();
-					/*
-					 * log.set list.add(log);
-					 */
+					Summary summary = new Summary();
+					summary.setItemID(rs.getInt(1));
+					summary.setItemName(rs.getString(2));
+					summary.setTotal(rs.getInt(3));
+					summary.setUsed(rs.getInt(4));
+					summary.setRemaining(rs.getInt(5));
+					list.add(summary);
 				}
 				return list;
 			}
