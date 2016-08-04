@@ -4,25 +4,18 @@
 angular.module('app', [])
         .controller('myCtrl', function ($scope, $http) {
         	$scope.showTable = false;
+        	$scope.showSummary=false;
         	$scope.itemName='';
         	$scope.typeId = 0;
         	$scope.itemType = '';
         	$scope.itemSubType='';
-
-         	$scope.saveMessage = function(id, data) {
-         
-         
-                    $http({
-                        method : 'POST',
-                        url : 'http://localhost:8080/AngularjsJAXRSCRUDExample/rest/messages/'+ id+ '/'+data
-                   
-                    }).then( _success, _error );
-                };
-
+        	$scope.fromDate='';
+        	$scope.toDate='';
+         	
   $scope.addType = function(type, subType) { 		
       $http({
             method : 'GET',
-            url : 'http://localhost:8080/ifsm/rest/addItemType/'+ type+'/' + subType 
+            url : 'http://localhost:8081/InventoryFood/rest/addItemType/'+ type+'/' + subType 
         }).then(function successCallback(response) {
        
         }, function errorCallback(response) {
@@ -34,7 +27,7 @@ angular.module('app', [])
    $scope.addItem = function(name, id) { 		
       $http({
             method : 'GET',
-            url : 'http://localhost:8080/ifsm/rest/addItems/'+ name+'/' + id 
+            url : 'http://localhost:8081/InventoryFood/rest/addItem/'+ name+'/' + id 
         }).then(function successCallback(response) {
        
         }, function errorCallback(response) {
@@ -46,7 +39,7 @@ angular.module('app', [])
 	$scope.removeItem = function(name) { 		
 	      $http({
 	            method : 'GET',
-	            url : 'http://localhost:8080/ifsm/rest/removeItems/'+ name 
+	            url : 'http://localhost:8081/InventoryFood/rest/removeItem/'+ name 
 	        }).then(function successCallback(response) {
 	       
 	        }, function errorCallback(response) {
@@ -58,7 +51,7 @@ angular.module('app', [])
  		$scope.showTable = true;
       $http({
             method : 'GET',
-            url : 'http://localhost:8080/ifsm/rest/item/1'
+            url : 'http://localhost:8081/InventoryFood/rest/items/1'
         }).then(function successCallback(response) {
             $scope.items = response.data;
         }, function errorCallback(response) {
@@ -66,8 +59,18 @@ angular.module('app', [])
         });
 	}
 
-	$scope.items = [{itemID:2, itemName:'pen', visiblity:0, typeID:1},
-		{itemID:3, itemName:'color', visiblity:0, typeID:1}];
-	
-});
-        
+/*	$scope.items = [{itemID:2, itemName:'pen', visiblity:0, typeID:1},
+		{itemID:3, itemName:'color', visiblity:0, typeID:1}];*/
+	$scope.viewSummary=function(fromDate,toDate){
+		$scope.showSummary=true;
+	 $http({
+         method : 'GET',
+         url : "http://localhost:8081/InventoryFood/rest/summary/'"+fromDate+"'/'"+toDate+"'"
+     }).then(function successCallback(response) {
+         $scope.summary = response.data;
+     }, function errorCallback(response) {
+         console.log(response.statusText);
+     });
+}
+	});
+      
