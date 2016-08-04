@@ -72,5 +72,13 @@ angular.module('app', [])
          console.log(response.statusText);
      });
 }
+	$timeout(emailExpiry,86400000);
+	
+	function emailExpiry() {
+		$http({
+	         method : 'GET',
+	         url : "http://localhost:8081/InventoryFood/rest/email/expiry"
+	})
+	}
 	});
       
