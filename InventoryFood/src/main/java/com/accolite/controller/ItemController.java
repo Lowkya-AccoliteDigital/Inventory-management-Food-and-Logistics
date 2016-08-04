@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.accolite.model.Item;
+import com.accolite.model.Summary;
 import com.accolite.service.ItemService;
 
 @Controller
@@ -49,9 +50,9 @@ public class ItemController {
 
 	@RequestMapping(value = "/summary/{fromDate}/{toDate}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
-	public void viewSummary(@PathVariable("fromDate") String startdate, @PathVariable("toDate") String enddate)
+	public List<Summary> viewSummary(@PathVariable("fromDate") String startdate, @PathVariable("toDate") String enddate)
 			throws ParseException {
-		itemService.viewSummary(startdate, enddate);
+		return itemService.viewSummary(startdate, enddate);
 	}
 
 }
