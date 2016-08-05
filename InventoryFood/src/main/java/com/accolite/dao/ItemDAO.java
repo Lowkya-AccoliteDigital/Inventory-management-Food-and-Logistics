@@ -7,12 +7,14 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
+import com.accolite.controller.ItemController;
 import com.accolite.model.Item;
 import com.accolite.model.Log;
 import com.accolite.model.Summary;
@@ -20,6 +22,7 @@ import com.accolite.resources.Constants;
 
 @Repository
 public class ItemDAO {
+	final static Logger logger = Logger.getLogger(ItemDAO.class);
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	public static String fromdate;
@@ -48,9 +51,17 @@ public class ItemDAO {
 					item.setItemName(rs.getString("itemName"));
 					list.add(item);
 				}
+				if(logger.isDebugEnabled()){
+					logger.debug("......Response successful for displaying all items....");
+				}
+				
+				if(logger.isInfoEnabled()){
+					logger.info("......Response successful for displaying all items....");
+				}
 				return list;
 			}
 		});
+		
 	}
 
 	// QUERY TO ADD ITEM
@@ -60,12 +71,25 @@ public class ItemDAO {
 
 		int row = jdbcTemplate.update(Constants.ADD_ITEM, params, types);
 		System.out.println(row + " row inserted.");
-
+		if(logger.isDebugEnabled()){
+			logger.debug("......Response successful for adding item "+name+" ....");
+		}
+		
+		if(logger.isInfoEnabled()){
+			logger.info("......Response successful for adding item "+name+" ....");
+		}
 	}
 
 	// QUERY TO REMOVE ITEM
 	public void removeItem(String name) {
 		jdbcTemplate.update(Constants.DELETE_ITEM, name);
+		if(logger.isDebugEnabled()){
+			logger.debug("......Response successful for deleting item "+name+" ....");
+		}
+		
+		if(logger.isInfoEnabled()){
+			logger.info("......Response successful for deleting item "+name+" ....");
+		}
 	}
 
 	// QUERY TO ADD NEW ITEMTYPE
@@ -75,6 +99,13 @@ public class ItemDAO {
 
 		int row = jdbcTemplate.update(Constants.ADD_ITEM_TYPE, params, types);
 		System.out.println(row + " row inserted.");
+		if(logger.isDebugEnabled()){
+			logger.debug("......Response successful for adding  new item type "+subtype+" ....");
+		}
+		
+		if(logger.isInfoEnabled()){
+			logger.info("......Response successful for adding new item type "+subtype+" ....");
+		}
 	}
 
 	// QUERY TO DISPLAY SUMMARY
@@ -95,6 +126,13 @@ public class ItemDAO {
 					summary.setUsed(rs.getInt(4));
 					summary.setRemaining(rs.getInt(5));
 					list.add(summary);
+				}
+				if(logger.isDebugEnabled()){
+					logger.debug("......Response successful for displaying summary....");
+				}
+				
+				if(logger.isInfoEnabled()){
+					logger.info("......Response successful for displaying summary....");
 				}
 				return list;
 			}
