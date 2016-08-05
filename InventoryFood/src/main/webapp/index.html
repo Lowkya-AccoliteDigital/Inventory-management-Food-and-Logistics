@@ -1,133 +1,25 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8">
-<title>Admin Dashboard</title>
-<link rel="stylesheet" href="angular/css/bootstrap.css">
-<link rel="stylesheet" href="angular/css/app.css">
-<link rel="stylesheet" href="angular/css/ui-grid-stable.css">
-<link rel="stylesheet" href="angular/css/admin.css">
-<link rel="stylesheet" href="angular/css/checkinStatus.css">
+<meta charset="ISO-8859-1">
+<meta name="google-signin-client_id" content="1043157881757-fhiq7sd5rjl4bdhouk2mp73dv3bbflo6.apps.googleusercontent.com">
+<title>Google Sign In</title>
 
-<style>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript">
+ 
+function onSignIn(googleUser) {
+ 
+   var id_token = googleUser.getAuthResponse().id_token;
+   var profile = googleUser.getBasicProfile();
+   console.log('Email: ' + profile.getEmail());
+   var email=profile.getEmail();
+   window.location = "http://localhost:8081/InventoryFood/admin.html"; 
+ }
 
-.searchWrapOuterBox {
-    width: 100%;
-    margin: 0 auto;
-    padding: 15px 15px 5px;
-    z-index: 999999;
-    box-shadow: 5px 5px 20px #888888;
-    padding-left: 0;
-    padding-right: 0;
-    border-radius: 5px;
-    
-}
-.pd10 {
-	padding: 10px;
-}
-</style>
-
-<link rel="stylesheet" href="angular/css/ng-table.min.css">
-<link rel="stylesheet" type="text/css" href="angular/css/docs.css" />
-<link rel="stylesheet" type="text/css" href="angular/css/prettify.css" />
-<link rel="stylesheet" type="text/css" href="angular/css/angular-notys.css" />
-<link href="angular/css/angular-datepicker.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="angular/css/passenger.css">
-
-<script src="angular/angular.js"></script>
-<script src="angular/angular-aria.js"></script>
-<script src="angular/angular-animate.js"></script>
-<script src="angular/angular-route.js"></script>
-<script src="angular/angular-resource.js"></script>
-<script src="angular/angular-touch.js"></script>
-<script src="angular/ui-bootstrap-1.3.2.js"></script>
-<script src="angular/ui-bootstrap-tpls-1.3.2.js"></script>
-<script src="angular/xeditable.js"></script>
-<script src="angular/ui-grid-stable.js"></script>
-<script src="angular/restangular.js"></script>
-<script src="angular/lodash.js"></script>
-<script src="angular/validate.js"></script>
-<script src="angular/scrollpoint.js"></script>
-<script src="angular/mask.js"></script>
-<script src="angular/angular-acl.js"></script>
-<script src="angular/angular-sanitize.js"></script>
-<script src="angular/angular-ui-router.js"></script>
-<script src="angular/loading-bar.js"></script>
-<script src="angular/ng-websocket.js"></script>
-<script src="angular/ngAutocomplete.js"></script>
-<script src="angular/ngDialog.js"></script>
-<script src="angular/jquery.min.js"></script>
-<script src="angular/bootstrap.min.js"></script>
-<script src="angular/ng-table.js"></script>
-<script src="app.js"></script>
-
+</script>
 </head>
-<body ng-app="app" style=" background-color:#eed5f3; ">
-	<div class="searchWrapOuterBox  col-md-12 " style=" background-color: #AE2EC5; height:80px; padding: 10px; color:white;"> <h3>IMFL &nbsp;<!-- <sub>Inventory Management-Food and Logistics</sub> --></h3> </div>
-	
-	<div class="col-md-12" ng-controller="myCtrl" style="background-color:white; padding: 10px;">
-		<div class="col-md-12">
-			<label >Show all Items: </label> <button ng-click="allItems()">All Items</button>
-		</div>
-		
-		<div class="col-md-12">
-			<table class="table" ng-if=showTable>
-		    	<tr ng-repeat="item in items">
-			        <td >
-			            {{item.itemID}}</td>
-			        <td >
-			            {{item.itemName}}</td>
-			        <td >
-			            {{item.visiblity}}</td>
-			         <td>
-			            {{item.typeID}}</td>		        
-		    	</tr>
-			</table>
-		</div>
-		<br>
-		<div class="col-md-12 pd10">
-			<div class="col-md-4"><input type="text" class="form-group" ng-model="itemName" placeholder="Item name"> </div>
-			<div class="col-md-4"><input type="text" class="form-group" ng-model="typeId" placeholder="Type Id"></div>
-			<div class="col-md-4"><button ng-click="addItem(itemName, typeId)">Add Item</button></div>
-		</div>
-		
-	<div class="col-md-12 pd10">
-			<div class="col-md-4"><input type="text" class="form-group" ng-model="removeitemName" placeholder="Item name"> </div>
-			<div class="col-md-4"><button ng-click="removeItem(removeitemName)">Remove Item</button></div>
-			<div class="col-md-4"></div>
-
-	</div>
-
-
-	<div class="col-md-12 pd10">
-			<div class="col-md-4"><input type="text" class="form-group" ng-model="itemType" placeholder="Item Type"> </div>
-			<div class="col-md-4"><input type="text" class="form-group" ng-model="itemSubType" placeholder="Item Subtype"> </div>
-			<div class="col-md-4"><button ng-click="addType(itemType,itemSubType)">Add Type</button></div>
-
-		</div>
-<div class="col-md-12 pd10">
-			<div class="col-md-4"><input type="text" class="form-group" ng-model="fromDate" placeholder="from date"> </div>
-			<div class="col-md-4"><input type="text" class="form-group" ng-model="toDate" placeholder="to date"> </div>
-			<div class="col-md-4"><button ng-click="viewSummary(fromDate,toDate)">View Summary</button></div>
-</div>
-	  <div class="col-md-12">
-			<table class="table" ng-if=showSummary>
-		    	<tr ng-repeat="log in summary">
-			        <td >
-			            {{log.itemID}}</td>
-			        <td >
-			            {{log.itemName}}</td>
-			        <td >
-			            {{log.total}}</td>
-			         <td>
-			            {{log.used}}</td>		   
-			         <td>
-			            {{log.remaining}}</td>	     
-		    	</tr>
-			</table>
-		</div>
-	</div>
-	
-	
+<body>
+ <div class="g-signin2" data-onsuccess="onSignIn"></div>
 </body>
 </html>
