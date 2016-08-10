@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<title>Inventory Food And Logistics</title>
+<head>
+<style>
+ 
+ div.first{
+  padding-left: 110px;
+  padding-top: 50px;
+
+ }
+ div.g-signin2{
+  padding-left:650px;
+    /* margin-top:50%;*/
+ }
+    body{
+        background-image: url("media/background.jpg");
+    }
+    #title{
+        color:purple;
+        font-size:420%; 
+    }
+</style>
+
+<meta charset="ISO-8859-1">
+<meta name="google-signin-client_id" content="1043157881757-fhiq7sd5rjl4bdhouk2mp73dv3bbflo6.apps.googleusercontent.com">
+<title>Google Sign In</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+<script type="text/javascript">
+function onLoad() {
+    gapi.load('auth2', function() {
+      gapi.auth2.init();
+    });
+  }
+ function signOut() {
+  localStorage.setItem("email", "null");
+            
+
+   var auth2 = gapi.auth2.getAuthInstance();
+   console.log(auth2);
+   auth2.signOut().then(function () {
+    
+  console.log('User signed out.');
+
+     //location.href="http://localhost:8081/InventoryFood/firstpage.html";
+     window.location="http://localhost:8081/InventoryFood/firstpage.html";
+   });
+   
+   //location.href="InventoryFood/indexLogin.html";
+ }
+ 
+
+
+ 
+function onSignIn(googleUser) {
+ 
+   var id_token = googleUser.getAuthResponse().id_token;
+   var profile = googleUser.getBasicProfile();
+   console.log('Email: ' + profile.getEmail());
+   var emailValue = profile.getEmail();
+  
+   localStorage.setItem("email", emailValue);
+    window.location.href ='http://localhost:8081/InventoryFood/rest/login?emailID='+ emailValue  
+
+   
+
+ //  window.location = "";
+
+ }
+
+/*
+    var showText = function (target, message, index, interval) {   
+  if (index < message.length) {
+    $(target).append(message[index++]);
+    setTimeout(function () { showText(target, message, index, interval); }, interval);
+  }
+}
+*/
+
+ 
+</script>
+
+</head> 
+<body> <!--onload="showText('#title', 'Inventory management food and logistics', 0, 100)"-->
+
+<div class="first">
+<p id="title" >Welcome To Inventory Food And Logistics</p>
+</div>
+
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+</body>
+</html>

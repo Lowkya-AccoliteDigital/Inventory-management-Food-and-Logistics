@@ -1,3 +1,10 @@
+/****************************************************************************
+* Copyright (c) 2016 by Accolite.com. All rights reserved
+* 
+* Team:Lowkya Vuppu,Loghitha,Pawan Prakash,Momin Yadav
+* 
+* ***************************************************************************
+*/
 package com.accolite.model;
 
 // TODO: Auto-generated Javadoc
@@ -8,19 +15,19 @@ public class Summary {
 
 	/** The item ID. */
 	int itemID;
-	
+
 	/** The item name. */
 	String itemName;
-	
+
 	/** The total. */
 	int total;
-	
+
 	/** The used. */
 	int used;
-	
+
 	/** The remaining. */
 	int remaining;
-	
+
 	/**
 	 * Gets the item ID.
 	 *
@@ -29,16 +36,17 @@ public class Summary {
 	public int getItemID() {
 		return itemID;
 	}
-	
+
 	/**
 	 * Sets the item ID.
 	 *
-	 * @param itemID the new item ID
+	 * @param itemID
+	 *            the new item ID
 	 */
 	public void setItemID(int itemID) {
 		this.itemID = itemID;
 	}
-	
+
 	/**
 	 * Gets the item name.
 	 *
@@ -47,16 +55,17 @@ public class Summary {
 	public String getItemName() {
 		return itemName;
 	}
-	
+
 	/**
 	 * Sets the item name.
 	 *
-	 * @param itemName the new item name
+	 * @param itemName
+	 *            the new item name
 	 */
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
-	
+
 	/**
 	 * Gets the total.
 	 *
@@ -65,16 +74,17 @@ public class Summary {
 	public int getTotal() {
 		return total;
 	}
-	
+
 	/**
 	 * Sets the total.
 	 *
-	 * @param total the new total
+	 * @param total
+	 *            the new total
 	 */
 	public void setTotal(int total) {
 		this.total = total;
 	}
-	
+
 	/**
 	 * Gets the used.
 	 *
@@ -83,16 +93,17 @@ public class Summary {
 	public int getUsed() {
 		return used;
 	}
-	
+
 	/**
 	 * Sets the used.
 	 *
-	 * @param used the new used
+	 * @param used
+	 *            the new used
 	 */
 	public void setUsed(int used) {
 		this.used = used;
 	}
-	
+
 	/**
 	 * Gets the remaining.
 	 *
@@ -101,11 +112,12 @@ public class Summary {
 	public int getRemaining() {
 		return remaining;
 	}
-	
+
 	/**
 	 * Sets the remaining.
 	 *
-	 * @param remaining the new remaining
+	 * @param remaining
+	 *            the new remaining
 	 */
 	public void setRemaining(int remaining) {
 		this.remaining = remaining;

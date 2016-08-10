@@ -1,0 +1,65 @@
+
+	
+<div class="col-md-12" ng-init="showItemUser()" style="background-color:white; padding: 10px;">
+	
+		
+		<div class="col-md-12">
+			<div class="col-md-12" style=" background-color:black; color:white; line-height:3;">
+
+				<div class="col-md-2"  >ITEMS </div>
+					
+		        <div class="col-md-4" id="custom-search-input">
+                        <div class="input-group col-md-12" >
+                            <input type="text" ng-model="searchByName" class="search-query form-control" style="background-color:black; color:black; background-color: white;height:20px !important;" placeholder="Search" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button">
+                                    <span class=" glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                        </div>
+                 </div>
+                 <div class="col-md-4" style="text-align:right;color:black !important;">
+					<select ng-model="selectedCity" ng-options="city for city in cities">
+					</select>
+				</div>
+			     <div class="col-md-2">
+	
+				</div>
+				
+
+			</div>
+			
+			<table class="table-striped table-bordered" style="padding:5px;">
+	              <col width="600">
+	              <col width="600">
+	             
+	              <thead >
+	                <tr >          
+	                  <th >Item ID </th>
+	                  <th >Item Name</th>
+	                            
+	                </tr>
+	            </thead>              
+	            <tbody>
+
+	              <tr ng-repeat="item in items | filter: searchByName">
+	                
+	                <td >
+				         {{item.itemID}}</td>
+			        <td >
+			            {{item.itemName}}</td>
+			        
+	              </tr>
+             
+
+              </tbody>
+            </table>
+
+
+
+		</div>
+		
+
+	  
+</div>
+

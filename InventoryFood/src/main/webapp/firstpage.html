@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<title>Inventory Food And Logistics</title>
+<head>
+<style>
+	
+	div.first{
+
+		color: white;
+		padding-left: 410px;
+		padding-top: 50px;
+
+	}
+	div.g-signin2{
+		padding-left:450px;
+	}
+</style>
+
+<meta charset="ISO-8859-1">
+<meta name="google-signin-client_id" content="1043157881757-fhiq7sd5rjl4bdhouk2mp73dv3bbflo6.apps.googleusercontent.com">
+<title>Google Sign In</title>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript">
+ 
+function onSignIn(googleUser) {
+ 
+   var id_token = googleUser.getAuthResponse().id_token;
+   var profile = googleUser.getBasicProfile();
+   console.log('Email: ' + profile.getEmail());
+   var email=profile.getEmail();
+   window.location = "";
+   
+ }
+ 
+</script>
+
+</head> 
+<body style="background-color:black;">
+
+<div class="first">
+<h1 >Welcome To Inventory Food And Logistics</h1>
+</div>
+
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+</body>
+</html>

@@ -1,41 +1,86 @@
+/****************************************************************************
+* Copyright (c) 2016 by Accolite.com. All rights reserved
+* 
+* Team:Lowkya Vuppu,Loghitha,Pawan Prakash,Momin Yadav
+* 
+* ***************************************************************************
+*/
 package com.accolite.model;
 
 public class ItemCollection {
-	Integer itemCollectionID;
-	Integer itemID;
-	Integer itemName;
-	Integer visibility;
-	Integer typeID;
-	public Integer getItemCollectionID() {
-		return itemCollectionID;
-	}
-	public void setItemCollectionID(Integer itemCollectionID) {
-		this.itemCollectionID = itemCollectionID;
-	}
-	public Integer getItemID() {
-		return itemID;
-	}
-	public void setItemID(Integer itemID) {
-		this.itemID = itemID;
-	}
-	public Integer getItemName() {
+
+	String itemName;
+	Integer typeId;
+	String subItemids;
+	
+	/** The quantity. */
+	Integer quantity;
+	String unit;
+	String dateOfPurchase;
+	String dateOfExpiry;
+	String location;
+
+	public String getItemName() {
 		return itemName;
 	}
-	public void setItemName(Integer itemName) {
+
+	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
-	public Integer getVisibility() {
-		return visibility;
+
+	public Integer getTypeId() {
+		return typeId;
 	}
-	public void setVisibility(Integer visibility) {
-		this.visibility = visibility;
+
+	public void setTypeId(Integer typeId) {
+		this.typeId = typeId;
 	}
-	public Integer getTypeID() {
-		return typeID;
+
+	public String getSubItemids() {
+		return subItemids;
 	}
-	public void setTypeID(Integer typeID) {
-		this.typeID = typeID;
+
+	public void setSubItemids(String subItemids) {
+		this.subItemids = subItemids;
 	}
-	
-	
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getUnit() {
+		return unit;
+	}
+
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+
+	public String getDateOfPurchase() {
+		return dateOfPurchase;
+	}
+
+	public void setDateOfPurchase(String dateOfPurchase) {
+		this.dateOfPurchase = dateOfPurchase;
+	}
+
+	public String getDateOfExpiry() {
+		return dateOfExpiry;
+	}
+
+	public void setDateOfExpiry(String dateOfExpiry) {
+		this.dateOfExpiry = dateOfExpiry;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
 }

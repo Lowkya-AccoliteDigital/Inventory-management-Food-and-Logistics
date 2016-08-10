@@ -1,3 +1,10 @@
+/****************************************************************************
+* Copyright (c) 2016 by Accolite.com. All rights reserved
+* 
+* Team:Lowkya Vuppu,Loghitha,Pawan Prakash,Momin Yadav
+* 
+* ***************************************************************************
+*/
 package com.accolite.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +19,16 @@ import com.accolite.service.ThresholdService;
 public class ThresholdController {
 	@Autowired
 	private ThresholdService thresholdservice;
+
+	/**
+	 * Gets the items below threshold.
+	 *
+	 * @return the items below threshold
+	 */
+	// To check if items went below threshold
 	@RequestMapping(value = "/threshold", method = RequestMethod.GET)
 	@ResponseBody
 	public void getItemsBelowThreshold() {
-	   thresholdservice.getItemsBelowThreshold();
+		thresholdservice.getItemsBelowThreshold();
 	}
 }
