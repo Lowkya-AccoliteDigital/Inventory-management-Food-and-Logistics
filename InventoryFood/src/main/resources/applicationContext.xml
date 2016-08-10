@@ -10,7 +10,7 @@
 <bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
-		<property name="url" value="jdbc:sqlserver://localhost:1433;DataBaseName=MyPractise"></property>
+		<property name="url" value="jdbc:sqlserver://localhost:1433;DataBaseName=Inventory"></property>
 		<property name="username" value="sa"></property>
 		<property name="password" value="accolite"></property>
 	</bean>
