@@ -19,7 +19,7 @@ public class Constants {
 
 	public static final String ADD_ITEM_TYPE = "Insert into dbo.type(type,subtype)values(?,?);";
 
-	public static final String EMAIL_EXPIRY = "select log.itemID, item.itemName from log join item on"
+	public static final String EMAIL_EXPIRY = "select distinct(log.itemID), item.itemName from log join item on"
 			+ " log.itemID=item.itemID where log.dateofexpiry = convert(varchar(10),GETDATE(),126);";
 
 	public static final String ADD_ITEM_QUANTITY = "Insert into dbo.log values(?,?,?,?,?)";

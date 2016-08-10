@@ -64,7 +64,7 @@ public class EmailExpiryService {
 			if (ccEmail.length() > 0) {
 				msg.setRecipients(Message.RecipientType.CC, InternetAddress.parse(ccEmail, false));
 			}
-			String message = "The following items have expired today.Please remove them from the inventory";
+			String message = "The following items have expired today.Please remove them from the inventory\n";
 			int i;
 			if (expiryList.size() > 0) {
 				for (i = 0; i < expiryList.size(); i++) {

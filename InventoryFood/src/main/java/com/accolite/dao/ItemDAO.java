@@ -63,7 +63,7 @@ public class ItemDAO {
 			String query2 = ";with log1 as(select log.itemID log1itemID,item.itemName as itemname,IsNull(sum(Quantity),0) total,log.location as location,log.unit as unit,log.dateofpurchase as date1,log.dateofexpiry as date2,item.typeID as type,item.brand from log join item on log.itemID=item.itemID where io='i' group by log.itemID,item.itemName,location,log.unit,log.dateofpurchase,log.dateofexpiry,item.typeID,item.brand)"
 					+ ",log2 as(select log.itemID log2itemID,item.itemName as itemname,IsNull(sum(Quantity),0) used,log.location as location,log.unit as unit,log.dateofpurchase as date1,log.dateofexpiry as date2,item.typeID as type,item.brand from log join item on log.itemID=item.itemID where io='o' group by log.itemID,item.itemName,location,log.unit,log.dateofpurchase,log.dateofexpiry,item.typeID,item.brand)"
 					+ "select log1.log1itemID as itemid,log1.itemname,total-used as remaining,log1.location,log1.unit,log1.date1 as dop,log1.date2 as doe,log1.type as typ,log1.brand from log2 join log1 on "
-					+ "log1.log1itemID=log2.log2itemID and log1.date2 >= convert(varchar(10),GETDATE(),126) and log1.date1=log2.date1 and log1.date2=log2.date2  and log1.location=log2.location;";
+					+ "log1.log1itemID=log2.log2itemID and log1.date2 > convert(varchar(10),GETDATE(),126) and log1.date1=log2.date1 and log1.date2=log2.date2  and log1.location=log2.location;";
 
 			jdbcTemplate.query(query2, new ResultSetExtractor<List<Item>>() {
 				public List<Item> extractData(ResultSet rs) throws SQLException, DataAccessException {
